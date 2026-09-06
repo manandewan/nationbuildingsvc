@@ -801,24 +801,9 @@ body.modal-open {
 .initiative-actions {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding-top: 1.25rem;
   border-top: 1px solid var(--c-border);
-}
-
-.link-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--c-yale-blue);
-  transition: gap var(--transition-fast);
-}
-
-.link-cta:hover {
-  gap: 0.65rem;
-  color: var(--c-flame);
 }
 
 /* ==========================================================================
@@ -1762,6 +1747,10 @@ body.modal-open {
     align-items: stretch;
   }
   .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .initiative-actions .btn {
     width: 100%;
     justify-content: center;
   }
