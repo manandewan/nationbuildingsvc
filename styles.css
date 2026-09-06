@@ -1230,6 +1230,14 @@ body.nav-open {
   margin-bottom: 3.5rem;
 }
 
+.footer-brand-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1.25rem;
+  display: block;
+}
+
 .footer-brand p {
   font-size: 0.88rem;
   line-height: 1.6;
