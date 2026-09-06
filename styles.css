@@ -1143,6 +1143,164 @@ body.modal-open {
 }
 
 /* ==========================================================================
+   MEET THE TEAM (Executive & Management Council Showcase)
+   ========================================================================== */
+.team-section {
+  background: var(--c-seasalt);
+  position: relative;
+}
+
+.team-filters {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2.75rem;
+  flex-wrap: wrap;
+}
+
+.team-filter-btn {
+  padding: 0.55rem 1.15rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--c-text-muted);
+  border: 1px solid var(--c-border);
+  background: var(--c-white);
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-fast);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+}
+
+.team-filter-btn:hover {
+  color: var(--c-navy-deep);
+  border-color: var(--c-yale-blue);
+  background: var(--c-white);
+}
+
+.team-filter-btn.active {
+  background: var(--c-navy-deep);
+  color: var(--c-white);
+  border-color: var(--c-navy-deep);
+  box-shadow: 0 2px 8px rgba(0, 18, 58, 0.15);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.75rem;
+}
+
+.team-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  display: flex;
+  flex-direction: column;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--c-border-hover);
+}
+
+.team-card.hidden {
+  display: none;
+}
+
+.team-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  background: var(--c-isabelline);
+  overflow: hidden;
+}
+
+.team-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.team-card:hover .team-image-wrapper img {
+  transform: scale(1.02);
+}
+
+.team-badge-overlay {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
+  padding: 0.28rem 0.65rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.badge-exec {
+  background: rgba(218, 89, 27, 0.92);
+  color: #FFFFFF;
+}
+
+.badge-vp {
+  background: rgba(7, 55, 99, 0.9);
+  color: #FFFFFF;
+}
+
+.badge-coord {
+  background: rgba(245, 177, 35, 0.95);
+  color: #010028;
+}
+
+.team-card-info {
+  padding: 1.25rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.team-member-role {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--c-flame);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.35rem;
+}
+
+.team-member-name {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--c-navy-deep);
+  font-weight: 400;
+  margin-bottom: 0.65rem;
+  line-height: 1.2;
+}
+
+.team-member-quote {
+  font-size: 0.82rem;
+  color: var(--c-text-muted);
+  font-style: italic;
+  line-height: 1.5;
+  margin-top: auto;
+  border-top: 1px solid var(--c-border-light);
+  padding-top: 0.65rem;
+}
+
+/* ==========================================================================
    GET INVOLVED / APPLICATION CARD (Corporate Call to Action)
    ========================================================================== */
 .cta-section {
@@ -1448,6 +1606,9 @@ body.modal-open {
   .metrics-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .framework-5w1h-grid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1568,11 +1729,33 @@ body.modal-open {
   .modal-body {
     padding: 1.25rem;
   }
+  .team-filters {
+    justify-content: flex-start;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .team-filters::-webkit-scrollbar {
+    display: none;
+  }
+  .team-filter-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
 }
 
 @media (max-width: 580px) {
   .framework-5w1h-grid {
     grid-template-columns: 1fr;
+  }
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
   }
   .hero-cta-group {
     flex-direction: column;
