@@ -282,35 +282,4 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModal();
     }
   });
-
-  // 5. Team Category Filter System
-  const teamFilterBtns = document.querySelectorAll('.team-filter-btn');
-  const teamCards = document.querySelectorAll('.team-card');
-
-  if (teamFilterBtns.length && teamCards.length) {
-    teamFilterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        teamFilterBtns.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-
-        const filter = btn.getAttribute('data-filter');
-        teamCards.forEach(card => {
-          if (filter === 'all') {
-            card.classList.remove('hidden');
-          } else {
-            const categories = (card.getAttribute('data-category') || '').split(' ');
-            if (categories.includes(filter)) {
-              card.classList.remove('hidden');
-            } else {
-              card.classList.add('hidden');
-            }
-          }
-        });
-      });
-    });
-  }
 });
