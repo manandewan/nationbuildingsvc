@@ -14,20 +14,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 2. Mobile Nav Toggle
+  // 2. Mobile Nav Toggle & Backdrop Handling
   const mobileToggle = document.getElementById('mobileToggle');
   const mainNav = document.getElementById('mainNav');
+  const navBackdrop = document.getElementById('navBackdrop');
+
+  function setMobileNavState(open) {
+    if (!mainNav || !mobileToggle) return;
+    if (open) {
+      mainNav.classList.add('open');
+      mobileToggle.textContent = '✕';
+      mobileToggle.setAttribute('aria-expanded', 'true');
+      document.body.classList.add('nav-open');
+      if (navBackdrop) navBackdrop.classList.add('active');
+    } else {
+      mainNav.classList.remove('open');
+      mobileToggle.textContent = '☰';
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('nav-open');
+      if (navBackdrop) navBackdrop.classList.remove('active');
+    }
+  }
+
   if (mobileToggle && mainNav) {
     mobileToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
-      mobileToggle.textContent = mainNav.classList.contains('open') ? '✕' : '☰';
+      const isOpen = mainNav.classList.contains('open');
+      setMobileNavState(!isOpen);
     });
+
+    // Close when clicking nav backdrop
+    if (navBackdrop) {
+      navBackdrop.addEventListener('click', () => {
+        setMobileNavState(false);
+      });
+    }
 
     // Close when nav links are tapped
     mainNav.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
-        mainNav.classList.remove('open');
-        mobileToggle.textContent = '☰';
+        setMobileNavState(false);
       });
     });
   }
