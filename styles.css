@@ -1754,6 +1754,10 @@ body.modal-open {
     width: 100%;
     justify-content: center;
   }
+  .cta-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
   .governance-card {
     padding: 1.5rem;
   }
