@@ -216,6 +216,7 @@ a:focus:not(:focus-visible) {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.6rem;
+  min-height: 44px;
   font-size: 0.9rem;
   font-weight: 600;
   border-radius: var(--radius-sm);
@@ -382,6 +383,10 @@ a:focus:not(:focus-visible) {
   background-color: rgba(7, 55, 99, 0.08);
 }
 
+.mobile-drawer-cta {
+  display: none;
+}
+
 .nav-backdrop {
   position: fixed;
   top: 0;
@@ -402,7 +407,8 @@ a:focus:not(:focus-visible) {
   visibility: visible;
 }
 
-body.nav-open {
+body.nav-open,
+body.modal-open {
   overflow: hidden;
   touch-action: none;
 }
@@ -847,6 +853,10 @@ body.nav-open {
 }
 
 .pulse-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
   padding: 0.65rem 1.25rem;
   font-size: 0.88rem;
   font-weight: 600;
@@ -1444,6 +1454,16 @@ body.nav-open {
   .footer-top {
     grid-template-columns: 1fr 1fr;
   }
+  .brand-subtext,
+  .brand-divider {
+    display: none;
+  }
+  .main-nav {
+    gap: 1.1rem;
+  }
+  .main-nav .nav-link {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1474,6 +1494,7 @@ body.nav-open {
     pointer-events: auto;
   }
   .main-nav .nav-link {
+    width: 100%;
     padding: 0.85rem 0;
     min-height: 44px;
     display: flex;
@@ -1481,6 +1502,19 @@ body.nav-open {
     border-bottom: 1px solid var(--c-border-light);
     font-size: 1rem;
     font-weight: 500;
+  }
+  .nav-actions .btn {
+    display: none;
+  }
+  .mobile-drawer-cta {
+    display: block;
+    margin-top: 1.25rem;
+    padding-top: 0.5rem;
+  }
+  .mobile-drawer-cta .btn {
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
   }
   .mobile-toggle {
     display: flex;

@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Close when nav links are tapped
-    mainNav.querySelectorAll('.nav-link').forEach(link => {
+    // Close when nav links or drawer CTA are tapped
+    mainNav.querySelectorAll('.nav-link, .nav-link-cta').forEach(link => {
       link.addEventListener('click', () => {
         setMobileNavState(false);
       });
@@ -249,11 +249,13 @@ document.addEventListener('DOMContentLoaded', () => {
     modalBody.innerHTML = data.content;
     modalOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
+    document.body.classList.add('modal-open');
   }
 
   function closeModal() {
     modalOverlay.classList.remove('active');
     document.body.style.overflow = '';
+    document.body.classList.remove('modal-open');
   }
 
   // Trigger buttons
