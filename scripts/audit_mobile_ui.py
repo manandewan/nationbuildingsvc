@@ -267,6 +267,24 @@ def run_comprehensive_audit():
             'detail': 'Users navigating on iPad or Android tablets with external keyboards / assistive switches need clear high-contrast focus rings.'
         })
 
+    # Category 14: Tactile Touch Feedback (:active states)
+    if '.btn:active' not in css:
+        findings.append({
+            'cat': 'Touch Targets & Ergonomics',
+            'severity': 'MEDIUM',
+            'issue': 'Missing .btn:active tactile press feedback',
+            'detail': 'Mobile users require immediate visual feedback (pressed transform/brightness) on tap.'
+        })
+
+    # Category 15: Touch Device Hover Sticking Prevention
+    if '@media (hover: hover)' not in css:
+        findings.append({
+            'cat': 'Touch Targets & Ergonomics',
+            'severity': 'MEDIUM',
+            'issue': 'Missing @media (hover: hover) guards for transforms',
+            'detail': 'Hover transforms on touch devices cause sticky visual states upon tapping.'
+        })
+
     # Print Report
     print("=" * 60)
     print(f"MOBILE UI AUDITOR REPORT — {len(findings)} ISSUES FOUND")
