@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <div style="background: rgba(255, 255, 255, 0.05); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.10); border-left: 3px solid var(--c-flame); margin-top: 1.5rem;">
           <strong style="color: #FFFFFF;">Application Deadline:</strong> 12:00 PM, Saturday.<br>
-          <span style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.65);">Please coordinate through the official chapter Linktree / Instagram or with the Management Body.</span>
+          <span style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.65);">Please coordinate through the official chapter <a href="https://chat.whatsapp.com/CmIf9XDIyCs6wS53r1vhWp" target="_blank" rel="noopener noreferrer" style="color: var(--c-topaz); text-decoration: underline;">WhatsApp Community</a>, <a href="https://www.instagram.com/nbimpactchapter_svc/" target="_blank" rel="noopener noreferrer" style="color: var(--c-topaz); text-decoration: underline;">Instagram</a>, or with the Management Body.</span>
         </div>
       `
     }
