@@ -155,7 +155,7 @@ async def run():
             await capture('verified_desktop_join.png')
 
             # Desktop Modal Dialog
-            await send_cmd('Runtime.evaluate', {'expression': 'window.openModal("talentUnbound");'})
+            await send_cmd('Runtime.evaluate', {'expression': 'window.openModal("apply");'})
             await asyncio.sleep(0.4)
             await capture('verified_desktop_modal.png')
             await send_cmd('Runtime.evaluate', {'expression': 'window.closeModal();'})

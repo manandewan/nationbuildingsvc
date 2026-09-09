@@ -264,8 +264,14 @@ document.addEventListener('DOMContentLoaded', () => {
         </ul>
 
         <div style="background: rgba(255, 255, 255, 0.05); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.10); border-left: 3px solid var(--c-flame); margin-top: 1.5rem;">
-          <strong style="color: #FFFFFF;">Application Deadline:</strong> 12:00 PM, Saturday.<br>
+          <strong style="color: #FFFFFF;">Application Deadline:</strong> Midnight Sunday, 13 September 2026 (11:59 PM IST).<br>
           <span style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.65);">Please coordinate through the official chapter <a href="https://chat.whatsapp.com/CmIf9XDIyCs6wS53r1vhWp" target="_blank" rel="noopener noreferrer" style="color: var(--c-topaz); text-decoration: underline;">WhatsApp Community</a>, <a href="https://www.instagram.com/nbimpactchapter_svc/" target="_blank" rel="noopener noreferrer" style="color: var(--c-topaz); text-decoration: underline;">Instagram</a>, or with the Management Body.</span>
+          <div style="margin-top: 1rem;">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFWKXlQRYUO7Qd3bquShiC9UpBo3z2UdOJT5K-WzCSDMmuRA/viewform?usp=sharing&ouid=116085184018382906266" target="_blank" rel="noopener noreferrer" class="btn btn-flame" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
+              <span>Fill Official Application Form</span>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
         </div>
       `
     }

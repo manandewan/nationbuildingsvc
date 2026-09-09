@@ -1504,6 +1504,13 @@ body.modal-open {
   margin-bottom: 2rem;
 }
 
+.cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
 .cta-deadline-card {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.16);
