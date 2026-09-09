@@ -57,7 +57,84 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Work Charter "Three Pulses" Interactive Tab Switcher
+  // 3. Multi-Tab Navigation Architecture & Deep Linking
+  const validTabs = ['home', 'initiatives', 'charter', 'structure', 'team', 'join'];
+  const tabAliases = {
+    'about': 'home',
+    'pillars': 'home',
+    'governance': 'structure',
+    'ecosystem': 'structure',
+    'apply': 'join',
+    'recruitment': 'join'
+  };
+
+  function switchTab(tabKey, updateHash = true) {
+    if (!tabKey) return;
+    const cleanKey = tabKey.replace(/^#/, '').toLowerCase();
+    const resolvedTab = tabAliases[cleanKey] || cleanKey;
+    const targetTab = validTabs.includes(resolvedTab) ? resolvedTab : 'home';
+
+    // Toggle active view container
+    document.querySelectorAll('.tab-view').forEach(view => {
+      view.classList.remove('active');
+    });
+    const targetView = document.getElementById(`view-${targetTab}`);
+    if (targetView) {
+      targetView.classList.add('active');
+    }
+
+    // Update navigation links active & aria state
+    document.querySelectorAll('.main-nav .nav-link').forEach(link => {
+      const linkTab = link.getAttribute('data-tab');
+      if (linkTab === targetTab) {
+        link.classList.add('active');
+        link.setAttribute('aria-selected', 'true');
+      } else {
+        link.classList.remove('active');
+        link.setAttribute('aria-selected', 'false');
+      }
+    });
+
+    // Update URL hash without breaking history
+    if (updateHash) {
+      if (window.location.hash !== `#${targetTab}`) {
+        window.history.pushState(null, '', `#${targetTab}`);
+      }
+    }
+
+    // Smooth scroll to top of document
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Close mobile drawer if open
+    setMobileNavState(false);
+  }
+
+  // Bind click handlers to all [data-tab] triggers (nav links, hero buttons, footer links, etc.)
+  document.querySelectorAll('[data-tab]').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tab = trigger.getAttribute('data-tab');
+      switchTab(tab);
+    });
+  });
+
+  // Browser back/forward navigation support
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      switchTab(hash, false);
+    } else {
+      switchTab('home', false);
+    }
+  });
+
+  // Initial tab resolution on direct load
+  const initialHash = window.location.hash.replace('#', '');
+  if (initialHash) {
+    switchTab(initialHash, false);
+  }
+
+  // 4. Work Charter "Three Pulses" Interactive Tab Switcher
   const pulseData = {
     civic: {
       headline: "Civic Activation Pulse",

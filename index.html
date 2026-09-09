@@ -20,7 +20,7 @@
        ========================================================================= -->
   <header class="site-header">
     <div class="container nav-container">
-      <a href="#" class="brand-wrapper" aria-label="BuildingIndia Impact Chapter SVC">
+      <a href="#home" class="brand-wrapper" data-tab="home" aria-label="BuildingIndia Impact Chapter SVC">
         <img src="Logo/building_india_logo.png" alt="BuildingIndia Impact Chapter - Sri Venkateswara College Logo" class="brand-logo-img">
         <div class="brand-divider"></div>
         <div class="brand-subtext">
@@ -29,22 +29,20 @@
         </div>
       </a>
 
-      <nav class="main-nav" id="mainNav" aria-label="Main Navigation">
-        <a href="#about" class="nav-link">About</a>
-        <a href="#pillars" class="nav-link">Pillars</a>
-        <a href="#initiatives" class="nav-link">Initiatives</a>
-        <a href="#charter" class="nav-link">Work Charter</a>
-        <a href="#ecosystem" class="nav-link">Ecosystem</a>
-        <a href="#governance" class="nav-link">Structure</a>
-        <a href="#team" class="nav-link">Team</a>
-        <a href="#apply" class="nav-link">Recruitment</a>
+      <nav class="main-nav" id="mainNav" role="tablist" aria-label="Main Navigation">
+        <a href="#home" class="nav-link active" data-tab="home" id="tab-home" role="tab" aria-selected="true" aria-controls="view-home">Home</a>
+        <a href="#initiatives" class="nav-link" data-tab="initiatives" id="tab-initiatives" role="tab" aria-selected="false" aria-controls="view-initiatives">Initiatives</a>
+        <a href="#charter" class="nav-link" data-tab="charter" id="tab-charter" role="tab" aria-selected="false" aria-controls="view-charter">Work Charter</a>
+        <a href="#structure" class="nav-link" data-tab="structure" id="tab-structure" role="tab" aria-selected="false" aria-controls="view-structure">Structure</a>
+        <a href="#team" class="nav-link" data-tab="team" id="tab-team" role="tab" aria-selected="false" aria-controls="view-team">Team</a>
+        <a href="#join" class="nav-link" data-tab="join" id="tab-join" role="tab" aria-selected="false" aria-controls="view-join">Join</a>
         <div class="mobile-drawer-cta">
-          <a href="#apply" class="btn btn-primary nav-link-cta">Join Chapter →</a>
+          <a href="#join" class="btn btn-primary nav-link-cta" data-tab="join">Join Chapter →</a>
         </div>
       </nav>
 
       <div class="nav-actions">
-        <a href="#apply" class="btn btn-primary">Join Chapter</a>
+        <a href="#join" class="btn btn-primary" data-tab="join">Join Chapter</a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mainNav">☰</button>
       </div>
     </div>
@@ -52,29 +50,32 @@
   <div class="nav-backdrop" id="navBackdrop" aria-hidden="true"></div>
 
   <!-- =========================================================================
-       2. HERO SECTION (McKinsey Corporate Authority & Stripe Fluidity)
+       TAB 1: HOME VIEW (Hero, Metrics, Philosophy, Recruitment Gateway)
        ========================================================================= -->
-  <section class="hero-section">
-    <div class="hero-waves-bg"></div>
-    <div class="container hero-grid">
-      <div class="hero-content">
-        <div class="badge-pill">
-          <span class="dot"></span>
-          BuildingIndia Foundation • Sri Venkateswara College
-        </div>
-        
-        <h1 class="hero-title serif-headline">
-          Transforming campuses into hubs for <em>building India.</em>
-        </h1>
-        
-        <p class="hero-lead">
-          BuildingIndia Impact Chapters is a network of undergraduates channelising their passion, analytical rigor, and creativity to drive meaningful social change through small, consistent, and measurable actions.
-        </p>
-        
-        <div class="hero-cta-group">
-          <a href="#initiatives" class="btn btn-primary">Explore Initiatives ↓</a>
-          <a href="#charter" class="btn btn-secondary">Our 2026 Charter</a>
-        </div>
+  <div id="view-home" class="tab-view active" role="tabpanel" aria-labelledby="tab-home">
+
+    <!-- 2. HERO SECTION (McKinsey Corporate Authority & Stripe Fluidity) -->
+    <section class="hero-section">
+      <div class="hero-waves-bg"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="badge-pill">
+            <span class="dot"></span>
+            BuildingIndia Foundation • Sri Venkateswara College
+          </div>
+          
+          <h1 class="hero-title serif-headline">
+            Transforming campuses into hubs for <em>building India.</em>
+          </h1>
+          
+          <p class="hero-lead">
+            BuildingIndia Impact Chapters is a network of undergraduates channelising their passion, analytical rigor, and creativity to drive meaningful social change through small, consistent, and measurable actions.
+          </p>
+          
+          <div class="hero-cta-group">
+            <a href="#initiatives" class="btn btn-primary" data-tab="initiatives">Explore Initiatives ↓</a>
+            <a href="#charter" class="btn btn-secondary" data-tab="charter">Our 2026 Charter</a>
+          </div>
 
         <div class="hero-proof-statement">
           <span>Part of a national movement:</span>
@@ -198,9 +199,54 @@
     </div>
   </section>
 
-  <!-- =========================================================================
-       5. FEATURED SVC INITIATIVES (Stripe / Linear Product Showcase)
-       ========================================================================= -->
+  <!-- 4.1. HOME RECRUITMENT GATEWAY (Direct Access on Home View) -->
+  <section class="home-recruitment-section">
+    <div class="container">
+      <div class="home-recruitment-card">
+        <div class="home-recruitment-content">
+          <div class="badge-pill badge-gold">Active Recruitment • 2026–2027</div>
+          <h2 class="serif-headline" style="color: var(--c-navy-deep); margin-bottom: 1rem;">Ready to build something lasting at SVC?</h2>
+          <p style="color: var(--c-text-secondary); max-width: 650px; margin-bottom: 1.5rem; line-height: 1.7;">
+            We are selecting curious, growth-minded, and dedicated undergraduates ready to take ownership of real-world initiatives. Gain hands-on leadership, industry mentorship, and direct avenues to high-impact career pathways.
+          </p>
+          <div class="home-recruitment-perks">
+            <div class="home-perk-item">
+              <span class="perk-icon">✓</span>
+              <span>Pre-Placement Interview (PPI) Opportunities with Nation with NaMo</span>
+            </div>
+            <div class="home-perk-item">
+              <span class="perk-icon">✓</span>
+              <span>Direct Mentorship from Central Foundation Leads & Domain Experts</span>
+            </div>
+            <div class="home-perk-item">
+              <span class="perk-icon">✓</span>
+              <span>Official Letters of Recommendation & Tiered Campus Recognition</span>
+            </div>
+          </div>
+          <div style="margin-top: 2rem;">
+            <a href="#join" class="btn btn-flame" data-tab="join">Go to Join & Recruitment Portal →</a>
+          </div>
+        </div>
+
+        <div class="home-recruitment-sidebar">
+          <div class="home-intake-badge">Next Intake Window</div>
+          <div class="home-intake-status">General Body & Coordinator Roles</div>
+          <div class="home-intake-time">Standard Cutoff: 12:00 PM, Saturday</div>
+          <p class="home-intake-note">
+            Submissions are evaluated by the Management Body on a rolling basis. Visit the Join tab for complete role specifications and selection details.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div> <!-- /#view-home -->
+
+<!-- =========================================================================
+     TAB 2: INITIATIVES VIEW (Project Talent Unbound & Project Vitality)
+     ========================================================================= -->
+<div id="view-initiatives" class="tab-view" role="tabpanel" aria-labelledby="tab-initiatives">
+
+  <!-- 5. FEATURED SVC INITIATIVES (Stripe / Linear Product Showcase) -->
   <section id="initiatives" class="initiatives-section section-padding">
     <div class="container">
       <div class="section-header">
@@ -282,10 +328,14 @@
       </div>
     </div>
   </section>
+</div> <!-- /#view-initiatives -->
 
-  <!-- =========================================================================
-       6. WORK CHARTER: THE THREE PULSES (Harvard / McKinsey Strategy System)
-       ========================================================================= -->
+<!-- =========================================================================
+     TAB 3: WORK CHARTER VIEW (The Three Pulses & 5W1H Methodology)
+     ========================================================================= -->
+<div id="view-charter" class="tab-view" role="tabpanel" aria-labelledby="tab-charter">
+
+  <!-- 6. WORK CHARTER: THE THREE PULSES (Harvard / McKinsey Strategy System) -->
   <section id="charter" class="pulses-section section-padding">
     <div class="container">
       <div class="section-header">
@@ -376,10 +426,14 @@
       </div>
     </div>
   </section>
+</div> <!-- /#view-charter -->
 
-  <!-- =========================================================================
-       8. NATIONAL ECOSYSTEM & VALUE PROPOSITION
-       ========================================================================= -->
+<!-- =========================================================================
+     TAB 4: STRUCTURE VIEW (National Ecosystem & Chapter Governance)
+     ========================================================================= -->
+<div id="view-structure" class="tab-view" role="tabpanel" aria-labelledby="tab-structure">
+
+  <!-- 8. NATIONAL ECOSYSTEM & VALUE PROPOSITION -->
   <section id="ecosystem" class="ecosystem-section section-padding">
     <div class="container">
       <div class="section-header">
@@ -513,13 +567,14 @@
       </div>
     </div>
   </section>
+</div> <!-- /#view-structure -->
 
-  <!-- =========================================================================
-       10. MEET THE TEAM / CHAPTER LEADERSHIP
-       ========================================================================= -->
-  <!-- =========================================================================
-       10. CHAPTER LEADERSHIP • MEET OUR TEAM
-       ========================================================================= -->
+<!-- =========================================================================
+     TAB 5: TEAM VIEW (Meet Our Team / Leadership Roster)
+     ========================================================================= -->
+<div id="view-team" class="tab-view" role="tabpanel" aria-labelledby="tab-team">
+
+  <!-- 10. CHAPTER LEADERSHIP • MEET OUR TEAM -->
   <section id="team" class="team-compact-section">
     <div class="container">
       <div class="team-compact-header">
@@ -628,10 +683,14 @@
       </div>
     </div>
   </section>
+</div> <!-- /#view-team -->
 
-  <!-- =========================================================================
-       11. APPLICATION CALL TO ACTION
-       ========================================================================= -->
+<!-- =========================================================================
+     TAB 6: JOIN VIEW (Recruitment Portal & Selection Standards)
+     ========================================================================= -->
+<div id="view-join" class="tab-view" role="tabpanel" aria-labelledby="tab-join">
+
+  <!-- 11. APPLICATION CALL TO ACTION -->
   <section id="apply" class="cta-section section-padding">
     <div class="cta-pattern-bg"></div>
     <div class="container cta-box">
@@ -659,42 +718,43 @@
       </div>
     </div>
   </section>
+</div> <!-- /#view-join -->
 
-  <!-- =========================================================================
-       11. FOOTER (McKinsey Corporate Standards)
-       ========================================================================= -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <img src="Logo/building_india_logo_dark.png" alt="BuildingIndia Impact Chapter - Sri Venkateswara College Logo" class="footer-brand-logo">
-          <p>
-            BuildingIndia Impact Chapter at Sri Venkateswara College (SVC), South Campus, University of Delhi. An undergraduate community fostering civic engagement, bottom-up innovation, and purposeful civic leadership.
-          </p>
-        </div>
+<!-- =========================================================================
+     12. FOOTER (McKinsey Corporate Standards)
+     ========================================================================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="Logo/building_india_logo_dark.png" alt="BuildingIndia Impact Chapter - Sri Venkateswara College Logo" class="footer-brand-logo">
+        <p>
+          BuildingIndia Impact Chapter at Sri Venkateswara College (SVC), South Campus, University of Delhi. An undergraduate community fostering civic engagement, bottom-up innovation, and purposeful civic leadership.
+        </p>
+      </div>
 
-        <div class="footer-col">
-          <h4>Chapter Navigation</h4>
-          <ul class="footer-links">
-            <li><a href="#about">About Philosophy</a></li>
-            <li><a href="#pillars">The Three Pillars</a></li>
-            <li><a href="#initiatives">Flagship Initiatives</a></li>
-            <li><a href="#charter">Annual Charter</a></li>
-            <li><a href="#governance">Team Governance</a></li>
-            <li><a href="#team">Leadership Team</a></li>
-          </ul>
-        </div>
+      <div class="footer-col">
+        <h4>Chapter Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#home" data-tab="home">Home & Philosophy</a></li>
+          <li><a href="#home" data-tab="home">The Three Pillars</a></li>
+          <li><a href="#initiatives" data-tab="initiatives">Flagship Initiatives</a></li>
+          <li><a href="#charter" data-tab="charter">Annual Charter</a></li>
+          <li><a href="#structure" data-tab="structure">Team Governance</a></li>
+          <li><a href="#team" data-tab="team">Leadership Team</a></li>
+        </ul>
+      </div>
 
-        <div class="footer-col">
-          <h4>Initiatives & Focus</h4>
-          <ul class="footer-links">
-            <li><a href="#initiatives">Project Talent Unbound</a></li>
-            <li><a href="#initiatives">Project Vitality</a></li>
-            <li><a href="#charter">The Three Pulses</a></li>
-            <li><a href="#ecosystem">National Ecosystem</a></li>
-            <li><a href="#apply">Recruitment Cycle</a></li>
-          </ul>
-        </div>
+      <div class="footer-col">
+        <h4>Initiatives & Focus</h4>
+        <ul class="footer-links">
+          <li><a href="#initiatives" data-tab="initiatives">Project Talent Unbound</a></li>
+          <li><a href="#initiatives" data-tab="initiatives">Project Vitality</a></li>
+          <li><a href="#charter" data-tab="charter">The Three Pulses</a></li>
+          <li><a href="#structure" data-tab="structure">National Ecosystem</a></li>
+          <li><a href="#join" data-tab="join">Recruitment & Join</a></li>
+        </ul>
+      </div>
 
         <div class="footer-col">
           <h4>Institutional Affiliation</h4>
