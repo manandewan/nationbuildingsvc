@@ -58,10 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // 3. Multi-Tab Navigation Architecture & Deep Linking
-  const validTabs = ['home', 'initiatives', 'charter', 'structure', 'team', 'join'];
+  const validTabs = ['home', 'initiatives', 'structure', 'team', 'join'];
   const tabAliases = {
     'about': 'home',
     'pillars': 'home',
+    'charter': 'initiatives',
+    'pulses': 'initiatives',
     'governance': 'structure',
     'ecosystem': 'structure',
     'apply': 'join',
@@ -133,56 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (initialHash) {
     switchTab(initialHash, false);
   }
-
-  // 4. Work Charter "Three Pulses" Interactive Tab Switcher
-  const pulseData = {
-    civic: {
-      headline: "Civic Activation Pulse",
-      desc: "Centrally designed programs including campus surveys, institutional audits, and student panel discussions. This pulse systematically assesses the sentiment of students on critical themes such as career mobility, student welfare, healthcare, and campus policies to generate empirical insights for college administration.",
-      deliverables: [
-        "Comprehensive Student Pulse Survey Reports",
-        "Town Halls & Faculty-Student Dialogue Sessions",
-        "Policy Recommendation Dossiers submitted to SVC Administration"
-      ]
-    },
-    connect: {
-      headline: "Community Connect Pulse",
-      desc: "An omnipresent offline and online engagement framework keeping the campus community continuously informed, inspired, and actively involved. Translates complex socio-economic debates into relatable student discourse through digital campaigns, expert micro-broadcasts, and interactive campus activations.",
-      deliverables: [
-        "Weekly Awareness Infographics & Mythbuster Carousels",
-        "Micro-Broadcast Q&A Sessions with Domain Leaders",
-        "Multi-college Cross-Chapter Engagement Meetups"
-      ]
-    },
-    impact: {
-      headline: "Community Impact Pulse",
-      desc: "The flagship action-oriented engine of the chapter. Empowers student project coordinators to design, finance through zero-cost partnerships, and execute high-rigor real-world interventions driving measurable social impact within and beyond the Sri Venkateswara College campus under this year's central theme.",
-      deliverables: [
-        "Project Talent Unbound (PwBD Accessible Placement Ecosystem)",
-        "Project Vitality (SVC Student Biomarker Blueprint)",
-        "Zero-Waste Festival & Canteen Circularity Audits"
-      ]
-    }
-  };
-
-  const pulseTabBtns = document.querySelectorAll('.pulse-tab-btn');
-  const pulseTitle = document.getElementById('pulseTitle');
-  const pulseDesc = document.getElementById('pulseDesc');
-  const pulseList = document.getElementById('pulseList');
-
-  pulseTabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      pulseTabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const key = btn.getAttribute('data-pulse');
-      const data = pulseData[key];
-      if (data) {
-        pulseTitle.textContent = data.headline;
-        pulseDesc.textContent = data.desc;
-        pulseList.innerHTML = data.deliverables.map(item => `<li>${item}</li>`).join('');
-      }
-    });
-  });
 
   // 4. Modal Architecture
   const modalOverlay = document.getElementById('modalOverlay');
