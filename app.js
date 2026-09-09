@@ -110,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Close mobile drawer if open
     setMobileNavState(false);
   }
+  window.switchTab = switchTab;
 
   // Bind click handlers to all [data-tab] triggers (nav links, hero buttons, footer links, etc.)
   document.querySelectorAll('[data-tab]').forEach(trigger => {
@@ -153,7 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <p>Piloted within the Sri Venkateswara College ecosystem over an 8-month timeframe, the project institutionalizes campus-based placement readiness, accessible recruitment channels, and sensitized employer partnerships aligned with India's <strong>Rights of Persons with Disabilities (RPwD) Act, 2016</strong>.</p>
 
         <h4>Guiding Challenge Question</h4>
-        <blockquote style="border-left: 3px solid var(--c-flame); padding-left: 1rem; margin: 1rem 0; font-style: italic; color: var(--c-navy-deep);">
+        <blockquote style="border-left: 3px solid var(--c-flame); padding-left: 1rem; margin: 1rem 0; font-style: italic; color: #FFFFFF;">
           "How can we design and implement effective pathways within Sri Venkateswara College over the next eight months to create meaningful skilled work opportunities for students and alumni with varied physical, sensory, and neurocognitive disabilities?"
         </blockquote>
 
@@ -262,9 +263,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <li>Cross-chapter collaborations with chapters at IITs, BITS, and Delhi University colleges.</li>
         </ul>
 
-        <div style="background: var(--c-snow); padding: 1.25rem; border-radius: 8px; border-left: 3px solid var(--c-flame); margin-top: 1.5rem;">
-          <strong>Application Deadline:</strong> 12:00 PM, Saturday.<br>
-          <span style="font-size: 0.85rem; color: var(--c-text-muted);">Please coordinate through the official chapter Linktree / Instagram or with the Management Body.</span>
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.10); border-left: 3px solid var(--c-flame); margin-top: 1.5rem;">
+          <strong style="color: #FFFFFF;">Application Deadline:</strong> 12:00 PM, Saturday.<br>
+          <span style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.65);">Please coordinate through the official chapter Linktree / Instagram or with the Management Body.</span>
         </div>
       `
     }
@@ -286,6 +287,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
     document.body.classList.remove('modal-open');
   }
+  window.openModal = openModal;
+  window.closeModal = closeModal;
 
   // Trigger buttons
   document.querySelectorAll('[data-modal-trigger]').forEach(btn => {

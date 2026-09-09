@@ -22,30 +22,37 @@
   --c-topaz: #FFD47A;
   --c-peach: #FEE7B6;
 
-  /* Light Theme Surfaces & Backgrounds */
-  --c-snow: #FDF8F6;
-  --c-seasalt: #F7F7F8;
-  --c-isabelline: #F1EFED;
+  /* Dark Theme Foundations & Surfaces */
+  --c-canvas-dark: #010028;
+  --c-surface-1: #030A1A;
+  --c-surface-2: #06152D;
+  --c-surface-card: rgba(255, 255, 255, 0.04);
+  --c-surface-card-hover: rgba(255, 255, 255, 0.08);
+
+  /* Thematic Surface Mappings */
+  --c-snow: #06152D;
+  --c-seasalt: #030A1A;
+  --c-isabelline: #081B38;
   --c-white: #FFFFFF;
 
-  /* Neutral Typography & Borders */
-  --c-text-primary: #0F172A;
-  --c-text-secondary: #334155;
-  --c-text-muted: #64748B;
-  --c-text-light: #94A3B8;
-  --c-border: rgba(7, 55, 99, 0.1);
-  --c-border-hover: rgba(7, 55, 99, 0.22);
-  --c-border-light: rgba(0, 0, 0, 0.06);
+  /* Neutral Typography & Borders (High-Contrast Dark Mode) */
+  --c-text-primary: #FFFFFF;
+  --c-text-secondary: rgba(255, 255, 255, 0.82);
+  --c-text-muted: rgba(255, 255, 255, 0.60);
+  --c-text-light: rgba(255, 255, 255, 0.40);
+  --c-border: rgba(255, 255, 255, 0.12);
+  --c-border-hover: rgba(255, 255, 255, 0.28);
+  --c-border-light: rgba(255, 255, 255, 0.08);
 
   /* Typography Stacks */
   --font-serif: 'DM Serif Display', Georgia, serif;
   --font-sans: 'Roboto', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* Elevation & Shadows (McKinsey / Stripe Crisp Shadows) */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 18, 58, 0.04);
-  --shadow-md: 0 4px 12px -2px rgba(0, 18, 58, 0.06), 0 2px 6px -1px rgba(0, 18, 58, 0.03);
-  --shadow-lg: 0 12px 28px -6px rgba(0, 18, 58, 0.09), 0 4px 10px -2px rgba(0, 18, 58, 0.04);
-  --shadow-hover: 0 16px 36px -8px rgba(0, 18, 58, 0.12), 0 6px 14px -3px rgba(0, 18, 58, 0.05);
+  /* Elevation & Shadows (Dark Depth Shadows) */
+  --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 16px -2px rgba(0, 0, 0, 0.4), 0 2px 6px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 12px 32px -6px rgba(0, 0, 0, 0.55), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+  --shadow-hover: 0 16px 40px -6px rgba(0, 0, 0, 0.7), 0 6px 16px -3px rgba(0, 0, 0, 0.4);
 
   /* Spacing & Layout */
   --container-max: 1200px;
@@ -72,11 +79,12 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  color-scheme: dark;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--c-snow);
+  background-color: var(--c-canvas-dark);
   color: var(--c-text-primary);
   line-height: 1.6;
   overflow-x: hidden;
@@ -149,10 +157,12 @@ a:focus:not(:focus-visible) {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   border-radius: var(--radius-pill);
-  background: rgba(7, 55, 99, 0.05);
-  color: var(--c-yale-blue);
-  border: 1px solid rgba(7, 55, 99, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--c-topaz);
+  border: 1px solid rgba(255, 212, 122, 0.35);
   margin-bottom: 1.25rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .badge-pill .dot {
@@ -165,14 +175,14 @@ a:focus:not(:focus-visible) {
 
 .badge-gold {
   background: rgba(245, 177, 35, 0.12);
-  color: #925800;
+  color: var(--c-topaz);
   border-color: rgba(245, 177, 35, 0.35);
 }
 
 .badge-navy {
-  background: rgba(0, 18, 58, 0.08);
-  color: var(--c-navy-deep);
-  border-color: rgba(0, 18, 58, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Typography Classes */
@@ -180,14 +190,14 @@ a:focus:not(:focus-visible) {
   font-family: var(--font-serif);
   font-weight: 400;
   line-height: 1.15;
-  color: var(--c-navy-deep);
+  color: #FFFFFF;
   letter-spacing: -0.015em;
 }
 
 .serif-headline em {
   font-style: italic;
-  color: var(--c-yale-blue);
-  background: linear-gradient(135deg, var(--c-yale-blue) 0%, var(--c-flame) 120%);
+  color: var(--c-topaz);
+  background: linear-gradient(135deg, var(--c-topaz) 0%, var(--c-gusto-gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -200,12 +210,13 @@ a:focus:not(:focus-visible) {
 
 .section-header h2 {
   font-size: clamp(1.75rem, 4vw + 0.5rem, 2.35rem);
+  color: #FFFFFF;
   margin-bottom: 1rem;
 }
 
 .section-header p {
   font-size: 1.05rem;
-  color: var(--c-text-secondary);
+  color: rgba(255, 255, 255, 0.75);
   line-height: 1.65;
 }
 
@@ -230,30 +241,32 @@ a:focus:not(:focus-visible) {
 }
 
 .btn-primary {
-  background: var(--c-navy-deep);
+  background: #002A54;
   color: var(--c-white);
-  border: 1px solid var(--c-navy-deep);
-  box-shadow: 0 2px 5px rgba(0, 18, 58, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary:hover {
-  background: var(--c-yale-blue);
-  border-color: var(--c-yale-blue);
+  background: #003870;
+  border-color: rgba(255, 212, 122, 0.45);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(7, 55, 99, 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
   color: var(--c-white);
 }
 
 .btn-secondary {
-  background: var(--c-white);
-  color: var(--c-navy-deep);
-  border: 1px solid rgba(7, 55, 99, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .btn-secondary:hover {
-  background: var(--c-seasalt);
-  border-color: var(--c-yale-blue);
-  color: var(--c-yale-blue);
+  background: rgba(255, 255, 255, 0.16);
+  border-color: #FFFFFF;
+  color: #FFFFFF;
   transform: translateY(-1px);
 }
 
@@ -667,9 +680,9 @@ body.modal-open {
    METRICS BAR (BCG / McKinsey Executive Ribbon)
    ========================================================================== */
 .metrics-section {
-  background: var(--c-white);
-  border-top: 1px solid var(--c-border);
-  border-bottom: 1px solid var(--c-border);
+  background: radial-gradient(ellipse at 50% 0%, #06152D 0%, #010028 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
   padding: 2.75rem 0;
 }
 
@@ -691,14 +704,14 @@ body.modal-open {
   right: 0;
   height: 80%;
   width: 1px;
-  background: var(--c-border);
+  background: rgba(255, 255, 255, 0.10);
 }
 
 .metric-number {
   font-family: var(--font-serif);
   font-size: 2.75rem;
   font-weight: 400;
-  color: var(--c-navy-deep);
+  color: #FFFFFF;
   line-height: 1;
   margin-bottom: 0.5rem;
 }
@@ -710,7 +723,7 @@ body.modal-open {
 .metric-title {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--c-text-primary);
+  color: #FFFFFF;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   margin-bottom: 0.25rem;
@@ -718,7 +731,7 @@ body.modal-open {
 
 .metric-subtitle {
   font-size: 0.8rem;
-  color: var(--c-text-muted);
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.4;
 }
 
@@ -905,7 +918,8 @@ body.modal-open {
    FLAGSHIP INITIATIVES SHOWCASE (Linear / Stripe Product Showcase)
    ========================================================================== */
 .initiatives-section {
-  background: #FFFFFF;
+  background: radial-gradient(ellipse at 50% 10%, #0d2247 0%, #010028 85%);
+  color: #FFFFFF;
 }
 
 .initiatives-grid {
@@ -915,23 +929,25 @@ body.modal-open {
 }
 
 .initiative-card {
-  background: var(--c-snow);
-  border: 1px solid var(--c-border);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: all var(--transition-base);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .initiative-card:hover {
   transform: translateY(-4px);
-  border-color: var(--c-yale-blue);
-  box-shadow: var(--shadow-hover);
+  border-color: rgba(255, 212, 122, 0.45);
+  box-shadow: 0 18px 45px -6px rgba(0, 0, 0, 0.7);
 }
 
 .initiative-badge-row {
@@ -944,7 +960,7 @@ body.modal-open {
 .initiative-title {
   font-family: var(--font-serif);
   font-size: 2rem;
-  color: var(--c-navy-deep);
+  color: #FFFFFF;
   margin-bottom: 0.5rem;
   line-height: 1.2;
 }
@@ -952,13 +968,13 @@ body.modal-open {
 .initiative-tagline {
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--c-yale-blue);
+  color: var(--c-topaz);
   margin-bottom: 1.25rem;
 }
 
 .initiative-summary {
   font-size: 0.95rem;
-  color: var(--c-text-secondary);
+  color: rgba(255, 255, 255, 0.82);
   line-height: 1.6;
   margin-bottom: 1.75rem;
 }
@@ -967,8 +983,8 @@ body.modal-open {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.85rem;
-  background: var(--c-white);
-  border: 1px solid var(--c-border-light);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: var(--radius-sm);
   padding: 1rem;
   margin-bottom: 2rem;
@@ -978,14 +994,14 @@ body.modal-open {
   font-size: 0.7rem;
   text-transform: uppercase;
   font-weight: 700;
-  color: var(--c-text-muted);
+  color: rgba(255, 255, 255, 0.55);
   margin-bottom: 0.2rem;
 }
 
 .key-metric-val {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--c-navy-deep);
+  color: #FFFFFF;
 }
 
 .initiative-actions {
@@ -993,7 +1009,7 @@ body.modal-open {
   align-items: center;
   justify-content: flex-start;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--c-border);
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
 }
 
 /* ==========================================================================
@@ -1168,7 +1184,8 @@ body.modal-open {
    NATIONAL ECOSYSTEM & VALUE PROPOSITION
    ========================================================================== */
 .ecosystem-section {
-  background: linear-gradient(180deg, var(--c-snow) 0%, var(--c-seasalt) 100%);
+  background: radial-gradient(ellipse at 50% 10%, #0b1f42 0%, #010028 85%);
+  color: #FFFFFF;
   position: relative;
 }
 
@@ -1179,29 +1196,32 @@ body.modal-open {
 }
 
 .ecosystem-item {
-  background: var(--c-white);
-  border: 1px solid var(--c-border);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.11);
   border-radius: var(--radius-md);
   padding: 1.75rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   transition: all var(--transition-fast);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .ecosystem-item:hover {
-  border-color: var(--c-yale-blue);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  border-color: rgba(255, 212, 122, 0.45);
+  box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.6);
+  transform: translateY(-3px);
 }
 
 .ecosystem-icon {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-sm);
-  background: rgba(7, 55, 99, 0.08);
-  color: var(--c-yale-blue);
+  background: rgba(245, 177, 35, 0.12);
+  color: var(--c-topaz);
+  border: 1px solid rgba(245, 177, 35, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1213,13 +1233,13 @@ body.modal-open {
 .ecosystem-item h4 {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--c-navy-deep);
+  color: #FFFFFF;
   margin-bottom: 0.35rem;
 }
 
 .ecosystem-item p {
   font-size: 0.88rem;
-  color: var(--c-text-secondary);
+  color: rgba(255, 255, 255, 0.76);
   line-height: 1.55;
 }
 
@@ -1227,7 +1247,9 @@ body.modal-open {
    CHAPTER GOVERNANCE & SELECTION (From Orientation Deck)
    ========================================================================== */
 .governance-section {
-  background: #FFFFFF;
+  background: linear-gradient(180deg, #010028 0%, #00123A 100%);
+  color: #FFFFFF;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .governance-grid {
@@ -1237,22 +1259,24 @@ body.modal-open {
 }
 
 .structure-box {
-  background: var(--c-snow);
-  border: 1px solid var(--c-border);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.11);
   border-radius: var(--radius-lg);
   padding: 2.25rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .structure-box h3 {
   font-size: 1.35rem;
   font-weight: 700;
-  color: var(--c-navy-deep);
+  color: #FFFFFF;
   margin-bottom: 0.5rem;
 }
 
 .structure-box p {
   font-size: 0.88rem;
-  color: var(--c-text-muted);
+  color: rgba(255, 255, 255, 0.70);
   margin-bottom: 1.75rem;
 }
 
@@ -1263,22 +1287,22 @@ body.modal-open {
 }
 
 .tier-card {
-  background: var(--c-white);
-  border: 1px solid var(--c-border-light);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--radius-sm);
   padding: 1rem 1.25rem;
-  border-left: 3px solid var(--c-yale-blue);
+  border-left: 3px solid var(--c-topaz);
 }
 
 .tier-title {
   font-size: 0.95rem;
   font-weight: 700;
-  color: var(--c-navy-deep);
+  color: #FFFFFF;
 }
 
 .tier-role {
   font-size: 0.8rem;
-  color: var(--c-text-muted);
+  color: rgba(255, 255, 255, 0.65);
   margin-top: 0.2rem;
 }
 
@@ -1298,8 +1322,9 @@ body.modal-open {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--c-navy-deep);
-  color: var(--c-white);
+  background: rgba(245, 177, 35, 0.15);
+  color: var(--c-topaz);
+  border: 1px solid rgba(245, 177, 35, 0.35);
   font-weight: 700;
   font-size: 0.88rem;
   display: flex;
@@ -1311,13 +1336,13 @@ body.modal-open {
 .step-content h4 {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--c-navy-deep);
+  color: #FFFFFF;
   margin-bottom: 0.25rem;
 }
 
 .step-content p {
   font-size: 0.85rem;
-  color: var(--c-text-secondary);
+  color: rgba(255, 255, 255, 0.75);
   line-height: 1.5;
 }
 
@@ -1611,7 +1636,8 @@ body.modal-open {
 }
 
 .modal-card {
-  background: var(--c-white);
+  background: #040D21;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   width: 100%;
   max-width: 860px;
   max-height: 90vh;
@@ -1619,7 +1645,7 @@ body.modal-open {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 25px 50px -12px rgba(0, 18, 58, 0.35);
+  box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.8), 0 0 40px rgba(1, 43, 77, 0.35);
   transform: translateY(20px);
   transition: transform var(--transition-base);
 }
@@ -1633,24 +1659,24 @@ body.modal-open {
   align-items: center;
   justify-content: space-between;
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid var(--c-border);
-  background: var(--c-snow);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .modal-title-group h3 {
   font-family: var(--font-serif);
   font-size: 1.65rem;
-  color: var(--c-navy-deep);
+  color: #FFFFFF;
 }
 
 .modal-title-group p {
   font-size: 0.85rem;
-  color: var(--c-text-muted);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .modal-close-btn {
   font-size: 1.5rem;
-  color: var(--c-text-muted);
+  color: rgba(255, 255, 255, 0.75);
   width: 44px;
   height: 44px;
   min-width: 44px;
@@ -1659,17 +1685,17 @@ body.modal-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background var(--transition-fast);
+  transition: background var(--transition-fast), color var(--transition-fast);
 }
 
 .modal-close-btn:hover {
-  background: rgba(0, 0, 0, 0.08);
-  color: var(--c-navy-deep);
+  background: rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
 }
 
 .modal-close-btn:active {
   transform: scale(0.92);
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.20);
 }
 
 .modal-body {
@@ -1679,13 +1705,13 @@ body.modal-open {
   -webkit-overflow-scrolling: touch;
   font-size: 0.95rem;
   line-height: 1.7;
-  color: var(--c-text-secondary);
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .modal-body h4 {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--c-navy-deep);
+  color: #FFFFFF;
   margin-top: 1.5rem;
   margin-bottom: 0.6rem;
 }
@@ -1719,13 +1745,13 @@ body.modal-open {
 
 .modal-table th, .modal-table td {
   padding: 0.75rem 1rem;
-  border: 1px solid var(--c-border);
+  border: 1px solid rgba(255, 255, 255, 0.10);
   text-align: left;
 }
 
 .modal-table th {
-  background: var(--c-seasalt);
-  color: var(--c-navy-deep);
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
   font-weight: 700;
 }
 
@@ -1863,14 +1889,14 @@ body.modal-open {
     max-height: 88dvh;
     padding-bottom: env(safe-area-inset-bottom, 1rem);
     transform: translateY(100%);
-    box-shadow: 0 -10px 40px rgba(0, 18, 58, 0.25);
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.7);
   }
   .modal-card::before {
     content: '';
     display: block;
     width: 36px;
     height: 4px;
-    background: #CBD5E1;
+    background: rgba(255, 255, 255, 0.28);
     border-radius: 2px;
     margin: 8px auto 0 auto;
   }
