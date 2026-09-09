@@ -1,12 +1,12 @@
 # Project Brief: Talent Unbound
-**A NationBuilding Impact Chapters Initiative**  
+**A BuildingIndia Impact Chapters Initiative**  
 *Ecosystem Partner: Sri Venkateswara College (SVC), University of Delhi*
 
 ---
 
 ## 1. Executive Summary
 
-**Project Talent Unbound** is an initiative spearheaded by **NationBuilding Impact Chapters** to systematically dismantle employment barriers faced by college students and alumni with physical, sensory, and neurocognitive disabilities (Persons with Benchmark Disabilities - PwBD).
+**Project Talent Unbound** is an initiative spearheaded by **BuildingIndia Impact Chapters** to systematically dismantle employment barriers faced by college students and alumni with physical, sensory, and neurocognitive disabilities (Persons with Benchmark Disabilities - PwBD).
 
 Piloted within **Sri Venkateswara College (SVC)** over an 8-month timeframe, the project designs and institutionalizes an end-to-end pathway comprising campus-based placement readiness, accessible recruitment channels, and sensitized employer partnerships. The broader mandate is to create a scalable, pan-university model aligned with India’s **Rights of Persons with Disabilities (RPwD) Act, 2016** and the national vision of equitable economic empowerment.
 
@@ -151,4 +151,4 @@ To build an inclusive employment model within the SVC ecosystem that empowers st
 
 ## 10. Long-Term Vision
 
-**Project Talent Unbound** is designed as a replicable blueprint. Following successful institutionalization at Sri Venkateswara College, the initiative aims to expand across Delhi University colleges, establishing a pan-university inclusive employment network in lockstep with the **RPwD Act, 2016** and **NationBuilding's** overarching mission for equitable nation-wide opportunities.
+**Project Talent Unbound** is designed as a replicable blueprint. Following successful institutionalization at Sri Venkateswara College, the initiative aims to expand across Delhi University colleges, establishing a pan-university inclusive employment network in lockstep with the **RPwD Act, 2016** and **BuildingIndia's** overarching mission for equitable nation-wide opportunities.

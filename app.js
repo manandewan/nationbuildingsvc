@@ -1,5 +1,5 @@
 /**
- * NATIONBUILDING IMPACT CHAPTER • SRI VENKATESWARA COLLEGE (SVC)
+ * BUILDINGINDIA IMPACT CHAPTER • SRI VENKATESWARA COLLEGE (SVC)
  * Interactive Scripting: Navigation, Tabs, Modals & Data Bindings
  */
 
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const briefs = {
     talentUnbound: {
       title: "Project Talent Unbound",
-      subtitle: "A NationBuilding Impact Chapters Initiative • Sri Venkateswara College",
+      subtitle: "A BuildingIndia Impact Chapters Initiative • Sri Venkateswara College",
       content: `
         <h4>Executive Summary</h4>
         <p>Project Talent Unbound is designed to bridge systemic employment disparities faced by college students and alumni with physical, sensory, and neurocognitive disabilities (Persons with Benchmark Disabilities - PwBD).</p>
@@ -198,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
       `
     },
     apply: {
-      title: "Join NationBuilding Impact Chapter SVC",
+      title: "Join BuildingIndia Impact Chapter SVC",
       subtitle: "Academic Year 2026–2027 Recruitment Cycle",
       content: `
         <h4>Who We Are Looking For</h4>
