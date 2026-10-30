@@ -2228,8 +2228,8 @@ body.modal-open {
 .score-band-pill {
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.28rem 0.72rem;
+  gap: 0.4rem;
+  padding: 0.3rem 0.72rem;
   border-radius: var(--radius-pill);
   font-size: 0.78rem;
   font-weight: 600;
@@ -2237,20 +2237,6 @@ body.modal-open {
   border: 1px solid var(--tier-border);
   color: var(--tier-text);
   white-space: nowrap;
-}
-
-.rubric-tier-graphic {
-  width: 20px;
-  height: 20px;
-  display: block;
-  flex-shrink: 0;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
-}
-
-.rubric-band-range {
-  font-size: 0.72rem;
-  opacity: 0.78;
-  margin-left: 0.15rem;
 }
 
 .score-band-pill strong {
@@ -2531,35 +2517,43 @@ button.score-band-pill.is-selected .band-dot {
   transform: scale(1.03);
 }
 
-/* Authentic Graphic Tier Sticker on Food Photo */
-.canteen-tier-sticker {
+/* Authentic S/A/B/C/F Tier Stamp directly on food image */
+.canteen-tier-stamp {
   position: absolute;
   top: 0.65rem;
   left: 0.65rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.75));
-  transform: rotate(-3deg);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+  gap: 0.32rem;
+  padding: 0.22rem 0.58rem;
+  border-radius: var(--radius-sm);
+  background: rgba(2, 8, 23, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--tier-border);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
+  line-height: 1;
   pointer-events: none;
   z-index: 2;
 }
 
-.canteen-card:hover .canteen-tier-sticker {
-  transform: scale(1.1) rotate(0deg);
-  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.85));
+.tier-stamp-rank {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--tier-solid);
+  letter-spacing: -0.02em;
 }
 
-.tier-sticker-svg {
-  width: 54px;
-  height: 54px;
-  display: block;
+.tier-stamp-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.85);
+  text-transform: uppercase;
 }
 
-/* Tier S subtle neon glow aura */
-.canteen-card.tier-green-high .canteen-tier-sticker {
-  filter: drop-shadow(0 4px 12px rgba(16, 185, 129, 0.45)) drop-shadow(0 6px 16px rgba(0, 0, 0, 0.8));
+.canteen-card.tier-green-high .canteen-tier-stamp {
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
 }
 
 .canteen-card-header {
@@ -2685,9 +2679,6 @@ button.score-band-pill.is-selected .band-dot {
 }
 
 .canteen-tier-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
   font-size: 0.72rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -2698,14 +2689,6 @@ button.score-band-pill.is-selected .band-dot {
   border: 1px solid var(--tier-border);
   color: var(--tier-text);
   white-space: nowrap;
-}
-
-.tier-badge-icon {
-  width: 14px;
-  height: 14px;
-  display: inline-block;
-  flex-shrink: 0;
-  vertical-align: middle;
 }
 
 .canteen-card-content {
@@ -2764,24 +2747,11 @@ button.score-band-pill.is-selected .band-dot {
   align-items: center;
   justify-content: space-between;
   gap: 0.75rem;
-  padding: 0.6rem 0.85rem;
+  padding: 0.55rem 0.85rem;
   border-radius: var(--radius-sm);
   background: var(--tier-tint);
   border: 1px solid var(--tier-border);
   margin-bottom: 0.2rem;
-}
-
-.breakdown-tier-left {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.breakdown-tier-logo {
-  width: 34px;
-  height: 34px;
-  flex-shrink: 0;
-  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.45));
 }
 
 .breakdown-tier-tag {
