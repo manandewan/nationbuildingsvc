@@ -32,6 +32,7 @@
       <nav class="main-nav" id="mainNav" role="tablist" aria-label="Main Navigation">
         <a href="#home" class="nav-link active" data-tab="home" id="tab-home" role="tab" aria-selected="true" aria-controls="view-home">Home</a>
         <a href="#initiatives" class="nav-link" data-tab="initiatives" id="tab-initiatives" role="tab" aria-selected="false" aria-controls="view-initiatives">Initiatives</a>
+        <a href="#canteen" class="nav-link" data-tab="canteen" id="tab-canteen" role="tab" aria-selected="false" aria-controls="view-canteen">Canteen Guide</a>
         <a href="#structure" class="nav-link" data-tab="structure" id="tab-structure" role="tab" aria-selected="false" aria-controls="view-structure">Structure</a>
         <a href="#team" class="nav-link" data-tab="team" id="tab-team" role="tab" aria-selected="false" aria-controls="view-team">Team</a>
         <a href="#join" class="nav-link" data-tab="join" id="tab-join" role="tab" aria-selected="false" aria-controls="view-join">Join</a>
@@ -223,7 +224,8 @@
             </div>
           </div>
 
-          <div class="initiative-actions">
+          <div class="initiative-actions" style="gap: 0.75rem; flex-wrap: wrap;">
+            <a href="#canteen" class="btn btn-flame" data-tab="canteen">Open Canteen Guide →</a>
             <button class="btn btn-primary" data-modal-trigger="vitality">View Executive Brief →</button>
           </div>
         </div>
@@ -231,6 +233,104 @@
     </div>
   </section>
 </div> <!-- /#view-initiatives -->
+
+<!-- =========================================================================
+     TAB 2B: DIGITAL CANTEEN GUIDE VIEW (Project Vitality • Initiative 1.1)
+     ========================================================================= -->
+<div id="view-canteen" class="tab-view" role="tabpanel" aria-labelledby="tab-canteen">
+  <section id="canteen" class="canteen-section section-padding">
+    <div class="container">
+      <div class="section-header canteen-section-header">
+        <div class="badge-pill badge-gold">Project Vitality • Initiative 1.1</div>
+        <h2 class="serif-headline">SVC Digital <em>Canteen Guide</em></h2>
+        <p>
+          Every item on the Sri Venkateswara College canteen menu scored from 0 to 100 across protein satiety, blood sugar stability, cooking oil quality, and nutrient density—so you can scan healthier choices at a glance.
+        </p>
+      </div>
+
+      <!-- Compact Score Scale & Rubric Reference -->
+      <div class="canteen-rubric-panel" aria-label="Health Score Legend and Metrics">
+        <div class="rubric-scale-col">
+          <div class="rubric-heading">Health Score Bands (0–100)</div>
+          <div class="rubric-badges-row">
+            <span class="score-band-pill tier-green-high"><span class="band-dot"></span>80–100 • Top Pick</span>
+            <span class="score-band-pill tier-green-mid"><span class="band-dot"></span>65–79 • Good Choice</span>
+            <span class="score-band-pill tier-amber"><span class="band-dot"></span>50–64 • Moderate</span>
+            <span class="score-band-pill tier-orange"><span class="band-dot"></span>35–49 • Occasional</span>
+            <span class="score-band-pill tier-red"><span class="band-dot"></span>0–34 • Limit</span>
+          </div>
+        </div>
+        <div class="rubric-metrics-col">
+          <div class="rubric-heading">Defined Evaluation Metrics</div>
+          <div class="rubric-weights-row">
+            <span class="weight-chip"><strong>30%</strong> Protein &amp; Satiety</span>
+            <span class="weight-chip"><strong>30%</strong> Glycemic Stability</span>
+            <span class="weight-chip"><strong>25%</strong> Cooking &amp; Oil</span>
+            <span class="weight-chip"><strong>15%</strong> Nutrient Value</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search, Category Tabs, Quick Filters & Sort Toolbar -->
+      <div class="canteen-toolbar">
+        <div class="canteen-search-sort-row">
+          <div class="canteen-search-wrap">
+            <label for="canteenSearch" class="sr-only">Search canteen menu items</label>
+            <svg class="canteen-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="search" id="canteenSearch" class="canteen-search-input" placeholder="Search menu (e.g., Idli, Thali, Omelette, Dosa, Chai)..." autocomplete="off">
+          </div>
+
+          <div class="canteen-sort-wrap">
+            <label for="canteenSort" class="canteen-sort-label">Sort by</label>
+            <select id="canteenSort" class="canteen-sort-select">
+              <option value="score-desc">Score: High to Low</option>
+              <option value="score-asc">Score: Low to High</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="protein-desc">Protein: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="canteen-filters-row">
+          <div class="canteen-category-pills" id="canteenCategoryPills" role="group" aria-label="Filter by food category">
+            <button type="button" class="filter-pill active" data-category="all">All Items</button>
+            <button type="button" class="filter-pill" data-category="South Indian">South Indian</button>
+            <button type="button" class="filter-pill" data-category="Meals & Bowls">Meals &amp; Bowls</button>
+            <button type="button" class="filter-pill" data-category="Snacks & Quick Bites">Snacks &amp; Quick Bites</button>
+            <button type="button" class="filter-pill" data-category="Beverages">Beverages</button>
+          </div>
+
+          <div class="canteen-quick-toggles" id="canteenQuickToggles" role="group" aria-label="Quick nutrition filters">
+            <button type="button" class="quick-filter-chip" data-quick="green" aria-pressed="false">Green Rated (65+)</button>
+            <button type="button" class="quick-filter-chip" data-quick="protein" aria-pressed="false">10g+ Protein</button>
+            <button type="button" class="quick-filter-chip" data-quick="budget" aria-pressed="false">Under ₹40</button>
+          </div>
+        </div>
+
+        <div class="canteen-results-meta">
+          <span id="canteenResultsCount" aria-live="polite">Showing 27 menu items</span>
+          <button type="button" id="canteenResetBtn" class="canteen-reset-btn" hidden>Reset filters</button>
+        </div>
+      </div>
+
+      <!-- Menu Cards Grid -->
+      <div id="canteenGrid" class="canteen-grid">
+        <!-- Populated dynamically via app.js -->
+      </div>
+
+      <!-- Empty State -->
+      <div id="canteenEmptyState" class="canteen-empty-state" hidden>
+        <p>No canteen items match your active search and filters.</p>
+        <button type="button" class="btn btn-secondary" id="canteenEmptyResetBtn">Show All Menu Items</button>
+      </div>
+
+      <!-- Reference Footnote -->
+      <p class="canteen-footnote">
+        * Reference estimates compiled under Project Vitality (Initiative 3.3) using Indian Food Composition Tables (IFCT) and standard SVC canteen serving sizes. Daily preparations—such as varying seasonal sabzis in the ₹70 Thali—may shift exact values slightly.
+      </p>
+    </div>
+  </section>
+</div> <!-- /#view-canteen -->
 
 <!-- =========================================================================
      TAB 3: STRUCTURE VIEW (National Ecosystem & Chapter Governance)
@@ -561,6 +661,7 @@
         <ul class="footer-links">
           <li><a href="#home" data-tab="home">Home & Overview</a></li>
           <li><a href="#initiatives" data-tab="initiatives">Flagship Initiatives</a></li>
+          <li><a href="#canteen" data-tab="canteen">Digital Canteen Guide</a></li>
           <li><a href="#structure" data-tab="structure">Team Governance</a></li>
           <li><a href="#team" data-tab="team">Leadership Team</a></li>
           <li><a href="#join" data-tab="join">Join Chapter</a></li>
@@ -572,6 +673,7 @@
         <ul class="footer-links">
           <li><a href="#initiatives" data-tab="initiatives">Project Talent Unbound</a></li>
           <li><a href="#initiatives" data-tab="initiatives">Project Vitality</a></li>
+          <li><a href="#canteen" data-tab="canteen">SVC Canteen Health Index</a></li>
           <li><a href="#structure" data-tab="structure">National Ecosystem</a></li>
           <li><a href="#join" data-tab="join">Recruitment & Join</a></li>
         </ul>
