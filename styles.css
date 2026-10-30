@@ -2552,16 +2552,16 @@ button.score-band-pill.is-selected .v2-range {
   transform: scale(1.03);
 }
 
-/* Authentic S/A/B/C/F Tier Stamp directly on food image */
+/* Authentic S/A/B/C/F Tier Stamp directly on food image using the same minimalist logo emblem */
 .canteen-tier-stamp {
   position: absolute;
   top: 0.65rem;
   left: 0.65rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.32rem;
-  padding: 0.22rem 0.58rem;
-  border-radius: var(--radius-sm);
+  gap: 6px;
+  padding: 3px 8px 3px 3px;
+  border-radius: 9px;
   background: rgba(2, 8, 23, 0.88);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -2572,18 +2572,20 @@ button.score-band-pill.is-selected .v2-range {
   z-index: 2;
 }
 
-.tier-stamp-rank {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--tier-solid);
-  letter-spacing: -0.02em;
+.canteen-tier-stamp .v2-logo-emblem {
+  width: 26px;
+  height: 26px;
+  font-size: 0.95rem;
+  border-radius: 6px;
+  box-shadow: none;
 }
 
-.tier-stamp-label {
-  font-size: 0.62rem;
-  font-weight: 700;
+.canteen-tier-stamp .tier-stamp-label {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 0.72rem;
+  font-weight: 800;
   letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.85);
+  color: #FFFFFF;
   text-transform: uppercase;
 }
 

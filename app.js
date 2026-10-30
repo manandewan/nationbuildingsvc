@@ -883,7 +883,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="canteen-card-media">
               <img src="${item.image}" alt="${item.name}" width="640" height="400" loading="lazy" decoding="async">
               <div class="canteen-tier-stamp" aria-label="Rated Tier ${tier.grade}">
-                <span class="tier-stamp-rank">${tier.grade}</span>
+                <span class="v2-logo-emblem">${tier.grade}</span>
                 <span class="tier-stamp-label">TIER</span>
               </div>
             </div>
