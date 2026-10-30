@@ -2229,14 +2229,19 @@ body.modal-open {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.28rem 0.68rem;
+  padding: 0.3rem 0.72rem;
   border-radius: var(--radius-pill);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 600;
   background: var(--tier-tint);
   border: 1px solid var(--tier-border);
   color: var(--tier-text);
   white-space: nowrap;
+}
+
+.score-band-pill strong {
+  font-weight: 800;
+  letter-spacing: 0.02em;
 }
 
 button.score-band-pill {
