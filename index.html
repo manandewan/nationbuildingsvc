@@ -244,20 +244,30 @@
         <div class="badge-pill badge-gold">Project Vitality • Initiative 1.1</div>
         <h2 class="serif-headline">SVC Digital <em>Canteen Guide</em></h2>
         <p>
-          Every item on the Sri Venkateswara College canteen menu scored from 0 to 100 across protein satiety, blood sugar stability, cooking oil quality, and nutrient density—so you can scan healthier choices at a glance.
+          Every item on the Sri Venkateswara College canteen menu ranked into <strong>S, A, B, C, and F Tiers</strong> (scored 0–100) across protein satiety, blood sugar stability, cooking oil quality, and nutrient density—so you can scan healthier choices at a glance.
         </p>
       </div>
 
       <!-- Compact Score Scale & Rubric Reference -->
       <div class="canteen-rubric-panel" aria-label="Health Score Legend and Metrics">
         <div class="rubric-scale-col">
-          <div class="rubric-heading">Health Score Bands (0–100)</div>
+          <div class="rubric-heading">Canteen Tier Rankings (Click to Filter)</div>
           <div class="rubric-badges-row">
-            <span class="score-band-pill tier-green-high"><span class="band-dot"></span>80–100 • Top Pick</span>
-            <span class="score-band-pill tier-green-mid"><span class="band-dot"></span>65–79 • Good Choice</span>
-            <span class="score-band-pill tier-amber"><span class="band-dot"></span>50–64 • Moderate</span>
-            <span class="score-band-pill tier-orange"><span class="band-dot"></span>35–49 • Occasional</span>
-            <span class="score-band-pill tier-red"><span class="band-dot"></span>0–34 • Limit</span>
+            <button type="button" class="score-band-pill tier-green-high" data-tier-filter="S" aria-pressed="false" title="Filter by Tier S">
+              <span class="band-dot"></span><strong>Tier S</strong> (80–100) • Top Pick
+            </button>
+            <button type="button" class="score-band-pill tier-green-mid" data-tier-filter="A" aria-pressed="false" title="Filter by Tier A">
+              <span class="band-dot"></span><strong>Tier A</strong> (65–79) • Good Choice
+            </button>
+            <button type="button" class="score-band-pill tier-amber" data-tier-filter="B" aria-pressed="false" title="Filter by Tier B">
+              <span class="band-dot"></span><strong>Tier B</strong> (50–64) • Moderate
+            </button>
+            <button type="button" class="score-band-pill tier-orange" data-tier-filter="C" aria-pressed="false" title="Filter by Tier C">
+              <span class="band-dot"></span><strong>Tier C</strong> (35–49) • Occasional
+            </button>
+            <button type="button" class="score-band-pill tier-red" data-tier-filter="F" aria-pressed="false" title="Filter by Tier F">
+              <span class="band-dot"></span><strong>Tier F</strong> (0–34) • Limit
+            </button>
           </div>
         </div>
         <div class="rubric-metrics-col">
@@ -283,8 +293,8 @@
           <div class="canteen-sort-wrap">
             <label for="canteenSort" class="canteen-sort-label">Sort by</label>
             <select id="canteenSort" class="canteen-sort-select">
-              <option value="score-desc">Score: High to Low</option>
-              <option value="score-asc">Score: Low to High</option>
+              <option value="score-desc">Tier &amp; Score: High to Low (S → F)</option>
+              <option value="score-asc">Tier &amp; Score: Low to High (F → S)</option>
               <option value="price-asc">Price: Low to High</option>
               <option value="protein-desc">Protein: High to Low</option>
             </select>
@@ -301,7 +311,8 @@
           </div>
 
           <div class="canteen-quick-toggles" id="canteenQuickToggles" role="group" aria-label="Quick nutrition filters">
-            <button type="button" class="quick-filter-chip" data-quick="green" aria-pressed="false">Green Rated (65+)</button>
+            <button type="button" class="quick-filter-chip" data-quick="tier-s" aria-pressed="false">Tier S Only</button>
+            <button type="button" class="quick-filter-chip" data-quick="green" aria-pressed="false">Tier S &amp; A (65+)</button>
             <button type="button" class="quick-filter-chip" data-quick="protein" aria-pressed="false">10g+ Protein</button>
             <button type="button" class="quick-filter-chip" data-quick="budget" aria-pressed="false">Under ₹40</button>
           </div>
@@ -599,33 +610,33 @@
     <div class="cta-pattern-bg"></div>
     <div class="container cta-box">
       <div>
-        <div class="badge-pill badge-gold" style="color: #FFFFFF; border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.1);">
-          Applications Active
+        <div class="badge-pill badge-closed">
+          <span class="dot"></span> Applications Closed
         </div>
         <h2 class="serif-headline">Join the BuildingIndia Impact Chapter at SVC</h2>
         <p>
-          We are seeking curious, growth-minded, and dedicated undergraduates ready to take ownership of real-world initiatives. Gain hands-on leadership, industry mentorship, and direct avenues to high-impact career pathways.
+          Recruitment for the current intake cycle has concluded. We are deeply grateful to everyone who applied. Prospective applicants are encouraged to connect with our community channels to stay updated on future openings and public chapter initiatives.
         </p>
 
         <div class="cta-actions">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFWKXlQRYUO7Qd3bquShiC9UpBo3z2UdOJT5K-WzCSDMmuRA/viewform?usp=sharing&ouid=116085184018382906266" target="_blank" rel="noopener noreferrer" class="btn btn-flame">
-            <span>Fill Application Form</span>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 0.35rem;"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          <button class="btn btn-outline-white" data-modal-trigger="apply">View Role Standards & Selection Process</button>
+          <a href="https://chat.whatsapp.com/CmIf9XDIyCs6wS53r1vhWp" target="_blank" rel="noopener noreferrer" class="btn btn-flame">
+            <span>Join WhatsApp Community</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="margin-left: 0.35rem;"><path d="M12.004 2c-5.523 0-10 4.477-10 10 0 1.764.457 3.42 1.258 4.862L2 22l5.275-1.227A9.957 9.957 0 0 0 12.004 22c5.523 0 10-4.477 10-10s-4.477-10-10-10zm0 1.818c4.519 0 8.182 3.663 8.182 8.182 0 4.519-3.663 8.182-8.182 8.182-1.464 0-2.836-.388-4.027-1.063l-.289-.164-3.033.705.717-2.955-.177-.295A8.136 8.136 0 0 1 3.822 12c0-4.519 3.663-8.182 8.182-8.182zm4.618 10.664c-.253-.127-1.498-.74-1.73-.825-.232-.084-.4-.127-.568.127-.169.253-.652.825-.8 1-.148.169-.295.19-.548.063-.253-.127-1.067-.393-2.032-1.254-.752-.67-1.26-1.5-1.407-1.753-.148-.253-.016-.39.11-.515.114-.113.253-.295.38-.443.126-.148.169-.253.253-.422.084-.169.042-.317-.021-.443-.063-.127-.568-1.37-.779-1.875-.205-.492-.414-.425-.568-.432l-.485-.008c-.169 0-.443.063-.674.317s-.885.864-.885 2.106 1.905 2.443 2.032 2.612c.127.169 1.782 2.72 4.317 3.815.603.261 1.074.417 1.44.534.606.193 1.158.166 1.594.101.487-.073 1.498-.612 1.709-1.204.21-.592.21-1.1.148-1.204-.063-.106-.232-.169-.485-.296z"/></svg>
           </a>
-          <button class="btn btn-outline-white" data-modal-trigger="apply">Role Details & Process</button>
         </div>
       </div>
 
       <div class="cta-deadline-card">
-        <div class="deadline-badge">Next Intake Window</div>
-        <div class="deadline-title">General Body & Coordinator Roles</div>
-        <div class="deadline-time">Cutoff: 11:59 PM, Sunday, 27th September, 2026</div>
+        <div class="deadline-badge deadline-badge-closed">Intake Cycle Concluded</div>
+        <div class="deadline-title">Applications Closed</div>
+        <div class="deadline-time" style="color: rgba(255, 255, 255, 0.65);">Closed on Sunday, 27th September, 2026</div>
         <p style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.75); line-height: 1.5; margin-bottom: 1.25rem;">
-          Submissions are evaluated by the Management Body on a rolling basis. Ensure all details are submitted before the cutoff time.
+          Submissions for the 2026–2027 intake cycle are officially closed. Stay connected through our community channels for announcements regarding upcoming open roles and workshops.
         </p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFWKXlQRYUO7Qd3bquShiC9UpBo3z2UdOJT5K-WzCSDMmuRA/viewform?usp=sharing&ouid=116085184018382906266" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; width: 100%;">
-          <span>Open Application Form</span>
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        <a href="https://chat.whatsapp.com/CmIf9XDIyCs6wS53r1vhWp" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; text-decoration: none; width: 100%;">
+          <span>Join Community for Updates</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
       </div>
     </div>

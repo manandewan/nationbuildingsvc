@@ -269,15 +269,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <li>Cross-chapter collaborations with chapters at IITs, BITS, and Delhi University colleges.</li>
         </ul>
 
-        <div style="background: rgba(255, 255, 255, 0.05); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.10); border-left: 3px solid var(--c-flame); margin-top: 1.5rem;">
-          <strong style="color: #FFFFFF;">Application Deadline:</strong> 11:59 PM, Sunday, 27th September, 2026.<br>
-          <span style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.65);">Please coordinate through the official chapter <a href="https://chat.whatsapp.com/CmIf9XDIyCs6wS53r1vhWp" target="_blank" rel="noopener noreferrer" style="color: var(--c-topaz); text-decoration: underline;">WhatsApp Community</a>, <a href="https://www.instagram.com/nbimpactchapter_svc/" target="_blank" rel="noopener noreferrer" style="color: var(--c-topaz); text-decoration: underline;">Instagram</a>, or with the Management Body.</span>
-          <div style="margin-top: 1rem;">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfFWKXlQRYUO7Qd3bquShiC9UpBo3z2UdOJT5K-WzCSDMmuRA/viewform?usp=sharing&ouid=116085184018382906266" target="_blank" rel="noopener noreferrer" class="btn btn-flame" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none;">
-              <span>Fill Official Application Form</span>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-          </div>
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 1.25rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.10); border-left: 3px solid rgba(255, 255, 255, 0.4); margin-top: 1.5rem;">
+          <strong style="color: #FFFFFF;">Application Status:</strong> <span style="color: var(--c-topaz);">Closed</span> (Cutoff was 11:59 PM, Sunday, 27th September, 2026).<br>
+          <span style="font-size: 0.85rem; color: rgba(255, 255, 255, 0.65);">Applications for this recruitment cycle are now complete. For future announcements or inquiries, connect with the chapter via our <a href="https://chat.whatsapp.com/CmIf9XDIyCs6wS53r1vhWp" target="_blank" rel="noopener noreferrer" style="color: var(--c-topaz); text-decoration: underline;">WhatsApp Community</a> or <a href="https://www.instagram.com/nbimpactchapter_svc/" target="_blank" rel="noopener noreferrer" style="color: var(--c-topaz); text-decoration: underline;">Instagram</a>.</span>
         </div>
       `
     }
@@ -742,11 +736,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function getScoreTier(score) {
-    if (score >= 80) return { cls: 'tier-green-high', label: 'Top Pick' };
-    if (score >= 65) return { cls: 'tier-green-mid', label: 'Good Choice' };
-    if (score >= 50) return { cls: 'tier-amber', label: 'Moderate' };
-    if (score >= 35) return { cls: 'tier-orange', label: 'Occasional' };
-    return { cls: 'tier-red', label: 'Limit' };
+    if (score >= 80) return { cls: 'tier-green-high', grade: 'S', label: 'Tier S', descriptor: 'Top Pick' };
+    if (score >= 65) return { cls: 'tier-green-mid', grade: 'A', label: 'Tier A', descriptor: 'Good Choice' };
+    if (score >= 50) return { cls: 'tier-amber', grade: 'B', label: 'Tier B', descriptor: 'Moderate' };
+    if (score >= 35) return { cls: 'tier-orange', grade: 'C', label: 'Tier C', descriptor: 'Occasional' };
+    return { cls: 'tier-red', grade: 'F', label: 'Tier F', descriptor: 'Limit' };
   }
 
   function getBarColor(value, max) {
@@ -772,6 +766,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const state = {
       query: '',
       category: 'all',
+      tier: 'all',
       sort: 'score-desc',
       quick: new Set(),
       expanded: new Set()
@@ -838,12 +833,15 @@ document.addEventListener('DOMContentLoaded', () => {
       const q = state.query.trim().toLowerCase();
 
       const filtered = CANTEEN_ITEMS.filter(item => {
+        const itemTier = getScoreTier(item.score).grade;
+        if (state.tier !== 'all' && itemTier !== state.tier) return false;
         if (state.category !== 'all' && item.category !== state.category) return false;
+        if (state.quick.has('tier-s') && itemTier !== 'S') return false;
         if (state.quick.has('green') && item.score < 65) return false;
         if (state.quick.has('protein') && item.macros.proteinG < 10) return false;
         if (state.quick.has('budget') && item.priceSort >= 40) return false;
         if (q) {
-          const haystack = `${item.name} ${item.category} ${item.summary} ${item.prepTag}`.toLowerCase();
+          const haystack = `${item.name} ${item.category} ${item.summary} ${item.prepTag} tier ${itemTier}`.toLowerCase();
           if (!haystack.includes(q)) return false;
         }
         return true;
@@ -856,7 +854,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return b.score - a.score || a.priceSort - b.priceSort;
       });
 
-      const hasFilters = q !== '' || state.category !== 'all' || state.quick.size > 0;
+      const hasFilters = q !== '' || state.category !== 'all' || state.tier !== 'all' || state.quick.size > 0;
       if (canteenResetBtn) canteenResetBtn.hidden = !hasFilters;
 
       if (canteenResultsCount) {
@@ -881,8 +879,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const breakdownId = `breakdown-${item.id}`;
 
         return `
-          <article class="canteen-card ${tier.cls}${isOpen ? ' is-expanded' : ''}" data-item-id="${item.id}">
-            <img src="${item.image}" alt="${item.name}" width="640" height="400" loading="lazy" decoding="async">
+          <article class="canteen-card ${tier.cls}${isOpen ? ' is-expanded' : ''}" data-item-id="${item.id}" data-tier="${tier.grade}">
+            <div class="canteen-card-media">
+              <img src="${item.image}" alt="${item.name}" width="640" height="400" loading="lazy" decoding="async">
+              <div class="canteen-tier-stamp" aria-label="Rated Tier ${tier.grade}">
+                <span class="tier-stamp-rank">${tier.grade}</span>
+                <span class="tier-stamp-label">TIER</span>
+              </div>
+            </div>
 
             <header class="canteen-card-header">
               <div class="canteen-meta-top">
@@ -895,7 +899,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
               <div class="canteen-title-score-row">
                 <h3 class="canteen-item-title">${item.name}</h3>
-                <div class="canteen-score-cluster" aria-label="Health score ${item.score} out of 100, rated ${tier.label}">
+                <div class="canteen-score-cluster" aria-label="Tier ${tier.grade}, Health score ${item.score} out of 100">
                   <span class="canteen-score-pill">
                     <span class="canteen-score-num">${item.score}</span>
                     <span class="canteen-score-max">/100</span>
@@ -916,6 +920,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
               <div class="canteen-breakdown${isOpen ? ' is-open' : ''}" id="${breakdownId}"${isOpen ? '' : ' hidden'}>
                 <div class="canteen-breakdown-inner">
+                  <div class="breakdown-tier-banner">
+                    <span class="breakdown-tier-tag">Ranked ${tier.label}</span>
+                    <span class="breakdown-tier-subtitle">${item.score}/100 Vitality Score • ${tier.descriptor}</span>
+                  </div>
+
                   <div>
                     <div class="breakdown-section-label">Metric Breakdown</div>
                     <div class="breakdown-bars">
@@ -972,10 +981,31 @@ document.addEventListener('DOMContentLoaded', () => {
       // Avoid toggling if user is selecting text inside an open breakdown
       if (window.getSelection && window.getSelection().toString().length > 0) return;
       const btn = e.target.closest('.canteen-toggle-btn');
-      const clickedHeaderOrImg = e.target.closest('.canteen-card-header') || e.target.tagName === 'IMG';
+      const clickedHeaderOrImg = e.target.closest('.canteen-card-header') || e.target.closest('.canteen-card-media') || e.target.tagName === 'IMG';
       if (btn || clickedHeaderOrImg) {
         toggleCardExpansion(card, card.getAttribute('data-item-id'));
       }
+    });
+
+    // Interactive Rubric Tier Filter buttons
+    const rubricTierBtns = document.querySelectorAll('[data-tier-filter]');
+    rubricTierBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetTier = btn.getAttribute('data-tier-filter');
+        if (state.tier === targetTier) {
+          state.tier = 'all';
+          btn.setAttribute('aria-pressed', 'false');
+          btn.classList.remove('is-selected');
+        } else {
+          state.tier = targetTier;
+          rubricTierBtns.forEach(b => {
+            const isMatch = b.getAttribute('data-tier-filter') === targetTier;
+            b.setAttribute('aria-pressed', isMatch ? 'true' : 'false');
+            b.classList.toggle('is-selected', isMatch);
+          });
+        }
+        renderCanteenGrid();
+      });
     });
 
     if (canteenSearch) {
@@ -1023,6 +1053,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetCanteenFilters() {
       state.query = '';
       state.category = 'all';
+      state.tier = 'all';
       state.quick.clear();
       if (canteenSearch) canteenSearch.value = '';
       if (canteenCategoryPills) {
@@ -1035,6 +1066,10 @@ document.addEventListener('DOMContentLoaded', () => {
           c.setAttribute('aria-pressed', 'false');
         });
       }
+      rubricTierBtns.forEach(b => {
+        b.setAttribute('aria-pressed', 'false');
+        b.classList.remove('is-selected');
+      });
       renderCanteenGrid();
     }
 
