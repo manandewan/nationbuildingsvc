@@ -878,13 +878,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const dietLabel = item.diet === 'egg' ? 'Contains egg' : 'Vegetarian';
         const breakdownId = `breakdown-${item.id}`;
 
+        const tierGrade = tier.grade.toLowerCase();
+
         return `
           <article class="canteen-card ${tier.cls}${isOpen ? ' is-expanded' : ''}" data-item-id="${item.id}" data-tier="${tier.grade}">
             <div class="canteen-card-media">
               <img src="${item.image}" alt="${item.name}" width="640" height="400" loading="lazy" decoding="async">
-              <div class="canteen-tier-stamp" aria-label="Rated Tier ${tier.grade}">
-                <span class="tier-stamp-rank">${tier.grade}</span>
-                <span class="tier-stamp-label">TIER</span>
+              <div class="canteen-tier-sticker" aria-label="Tier ${tier.grade}">
+                <svg class="tier-sticker-svg" viewBox="0 0 100 100" width="56" height="56" aria-hidden="true">
+                  <use href="#tier-logo-${tierGrade}"/>
+                </svg>
               </div>
             </div>
 
@@ -904,7 +907,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="canteen-score-num">${item.score}</span>
                     <span class="canteen-score-max">/100</span>
                   </span>
-                  <span class="canteen-tier-badge">${tier.label}</span>
+                  <span class="canteen-tier-badge">
+                    <svg class="tier-badge-icon" viewBox="0 0 100 100" width="16" height="16" aria-hidden="true"><use href="#tier-logo-${tierGrade}"/></svg>
+                    Tier ${tier.grade}
+                  </span>
                 </div>
               </div>
             </header>
@@ -921,8 +927,15 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="canteen-breakdown${isOpen ? ' is-open' : ''}" id="${breakdownId}"${isOpen ? '' : ' hidden'}>
                 <div class="canteen-breakdown-inner">
                   <div class="breakdown-tier-banner">
-                    <span class="breakdown-tier-tag">Ranked ${tier.label}</span>
-                    <span class="breakdown-tier-subtitle">${item.score}/100 Vitality Score • ${tier.descriptor}</span>
+                    <div class="breakdown-tier-left">
+                      <svg class="breakdown-tier-logo" viewBox="0 0 100 100" width="34" height="34" aria-hidden="true">
+                        <use href="#tier-logo-${tierGrade}"/>
+                      </svg>
+                      <div>
+                        <span class="breakdown-tier-tag">Ranked Tier ${tier.grade}</span>
+                        <span class="breakdown-tier-subtitle">${item.score}/100 Vitality Score • ${tier.descriptor}</span>
+                      </div>
+                    </div>
                   </div>
 
                   <div>
